@@ -1,5 +1,6 @@
 package com.huse.springbootexample.domain;
 
+import com.huse.springbootexample.api.request.SaveCustomerRequest;
 import com.huse.springbootexample.domain.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,4 +20,14 @@ public class Customer extends BaseEntity {
     private String surname;
     private String identityId;
     private LocalDate birthday;
+
+    public Customer() {
+    }
+
+    public Customer(SaveCustomerRequest request) {
+        this.name = request.getName();
+        this.surname = request.getSurname();
+        this.identityId = request.getIdentityId();
+        this.birthday = request.getBirthday();
+    }
 }
